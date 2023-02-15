@@ -2,6 +2,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -46,4 +47,4 @@ function write_query($db_handle, $query, $logger)
 }
 
 // Run the file with: php -S localhost:8080
-//could not make php -S localhost:8080  get working 
+// php -S localhost:8080  to see the logs
