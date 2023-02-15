@@ -11,4 +11,11 @@ class Courses {
 
   }
 
+  public function show_courses() {
+    $courses = $db->read_query("select * from courses");
+
+    foreach ($courses as $course) {
+      print($course['name'] . "</br>" );
+    }
+  }
 }
