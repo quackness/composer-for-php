@@ -1,3 +1,5 @@
+<?php
+
 class DB {
 private $handle;
 private $logger;
@@ -7,16 +9,16 @@ $this->handle = new PDO('sqlite:/Users/karolinadubaj/lighthouse/personal_project
 $this->logger = $logger;
 }
 
-function read_query($db_handle, $query, $logger)
+public function read_query($query)
 {
-  $result = $db_handle->query($query);
-  $logger->info('Read query executed', ['query' => $query]);
+  $result = $this->handle->query($query);
+  $this->logger->info('Read query executed', ['query' => $query]);
   return $result;
 }
-function write_query($db_handle, $query, $logger)
+public function write_query($query)
 {
-  $result = $db_handle->query($query);
-  $logger->notice('Write query executed', ['query' => $query]);
+  $result = $this->handle->query($query);
+  $this->logger->notice('Write query executed', ['query' => $query]);
   return $result;
 }
 

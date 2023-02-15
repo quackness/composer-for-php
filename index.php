@@ -20,12 +20,12 @@ $db = new DB($log);
 //   author text,
 //   create_date date
 // )");
-$result = write_query($myPDO, "DELETE FROM courses;", $log);
-$result = write_query($myPDO, "insert into courses (name, author, create_date) values ('High performance PHP', 'karolina Redden', '03/29/2016')", $log);
-$result = write_query($myPDO, "insert into courses (name, author, create_date) values ('Composer', 'John redden', '04/20/2016')", $log);
-$result = write_query($myPDO, "insert into courses (name, author, create_date) values ('HTML', 'Sam Smith', '08/20/2010')", $log);
+$result = $db->write_query("DELETE FROM courses;");
+$result = $db->write_query("insert into courses (name, author, create_date) values ('High performance PHP', 'karolina Redden', '03/29/2016')");
+$result = $db->write_query("insert into courses (name, author, create_date) values ('Composer', 'John redden', '04/20/2016')");
+$result = $db->write_query("insert into courses (name, author, create_date) values ('HTML', 'Sam Smith', '08/20/2010')");
 
-$courses = read_query($myPDO, "select * from courses;", $log);
+$courses = $db->read_query("select * from courses;");
 
 // echo var_dump($courses);
 
