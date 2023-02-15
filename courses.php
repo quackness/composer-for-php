@@ -7,8 +7,10 @@ class Courses {
   }
 
   public function create_course($name, $author, $create_date) {
-    $this->db->write_query("insert into courses (name, author, create_date) values ('$name', '$author', '$create_date')");
-
+    $this->db->write_query("insert into courses (name, author, create_date)
+                            SELECT '$name', '$author', '$create_date'
+                            WHERE NOT EXISTS
+                            (SELECT 1 FROM courses WHERE name = '$name')");
   }
 
   public function show_courses() {
