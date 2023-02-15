@@ -36,18 +36,7 @@ foreach ($courses as $course) {
   print($course['name'] . "</br>" );
 }
 
-function read_query($db_handle, $query, $logger)
-{
-  $result = $db_handle->query($query);
-  $logger->info('Read query executed', ['query' => $query]);
-  return $result;
-}
-function write_query($db_handle, $query, $logger)
-{
-  $result = $db_handle->query($query);
-  $logger->notice('Write query executed', ['query' => $query]);
-  return $result;
-}
+
 
 // Run the file with: php -S localhost:8080
 // php -S localhost:8080  to see the logs
