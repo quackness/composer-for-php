@@ -19,3 +19,12 @@ $courses = $myPDO->query("select * from courses;");
 foreach ($courses as $course) {
   print($course['author']);
 }
+
+function read_query($db_handle, $query, $logger) {
+  $result = $db_handle->query($query);
+  return $result;
+}
+function write_query($db_handle, $query, $logger) {
+  $result = $db_handle->query($query);
+  return $result;
+}
