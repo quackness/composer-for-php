@@ -2,6 +2,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/db.php';
+require __DIR__ . '/courses.php';
 
 
 use Monolog\Logger;
@@ -11,6 +12,7 @@ $log = new Logger('query_log');
 $log->pushHandler(new StreamHandler('logs/query.log', Logger::DEBUG));
 
 $db = new DB($log);
+$courses = new Courses($db);
 
 
 // $myPDO = new PDO('sqlite:/Users/karolinadubaj/lighthouse/personal_projects/sfh/php/Composer/module4.db');
@@ -21,9 +23,9 @@ $db = new DB($log);
 //   create_date date
 // )");
 $result = $db->write_query("DELETE FROM courses;");
-$result = $db->write_query("insert into courses (name, author, create_date) values ('High performance PHP', 'karolina Redden', '03/29/2016')");
-$result = $db->write_query("insert into courses (name, author, create_date) values ('Composer', 'John redden', '04/20/2016')");
-$result = $db->write_query("insert into courses (name, author, create_date) values ('HTML', 'Sam Smith', '08/20/2010')");
+$result = $courses->create_course('High performance PHP', 'karolina Redden', '03/29/2016');
+$result = $courses->create_course('Composer', 'John redden', '04/20/2016');
+$result = $courses->create_course('HTML', 'Sam Smith', '08/20/2010');
 
 $courses = $db->read_query("select * from courses;");
 
