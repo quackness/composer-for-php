@@ -4,9 +4,9 @@ require __DIR__ . '/vendor/autoload.php';
 $global_start = microtime(true);
 
 $client = new GuzzleHttp\Client();
-request_endpoint($client, 'http://www.facebook.com');
-request_endpoint($client, 'http://www.google.com');
-request_endpoint($client, 'http://www.github.com');
+request_endpoint($client, 'https://www.facebook.com/karolina.dubaj.1');
+request_endpoint($client, 'https://www.facebook.com/andrew.redden');
+request_endpoint($client, 'https://www.facebook.com/grzegorz.dubaj.7');
 
 
 $global_end = microtime(true);
