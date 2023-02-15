@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/db.php';
 
 
 use Monolog\Logger;
@@ -9,8 +10,10 @@ use Monolog\Handler\StreamHandler;
 $log = new Logger('query_log');
 $log->pushHandler(new StreamHandler('logs/query.log', Logger::DEBUG));
 
+$db = new DB($log);
 
-$myPDO = new PDO('sqlite:/Users/karolinadubaj/lighthouse/personal_projects/sfh/php/Composer/module4.db');
+
+// $myPDO = new PDO('sqlite:/Users/karolinadubaj/lighthouse/personal_projects/sfh/php/Composer/module4.db');
 
 // $result = $myPDO->query("create table courses (
 //   name text,
