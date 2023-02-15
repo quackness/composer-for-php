@@ -27,16 +27,18 @@ $result = $courses->create_course('High performance PHP', 'karolina Redden', '03
 $result = $courses->create_course('Composer', 'John redden', '04/20/2016');
 $result = $courses->create_course('HTML', 'Sam Smith', '08/20/2010');
 
-$courses = $db->read_query("select * from courses;");
+$courses->show_courses();
 
-// echo var_dump($courses);
+// $courses = $db->read_query("select * from courses;");
 
-// foreach ($courses as $key => $value) {
-//   echo var_dump($value);
+// // echo var_dump($courses);
+
+// // foreach ($courses as $key => $value) {
+// //   echo var_dump($value);
+// // }
+// foreach ($courses as $course) {
+//   print($course['name'] . "</br>" );
 // }
-foreach ($courses as $course) {
-  print($course['name'] . "</br>" );
-}
 
 
 
